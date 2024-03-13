@@ -59,7 +59,7 @@
 #' )
 #' }
 #' @export
-create_chat_completion<- function(
+create_chat_completion <- function(
         model,
         messages = NULL,
         temperature = 1,
@@ -208,6 +208,7 @@ create_chat_completion<- function(
 
     response <- httr::POST(
         url = base_url,
+        httr::timeout(300),
         httr::add_headers(.headers = headers),
         body = body,
         encode = "json"
